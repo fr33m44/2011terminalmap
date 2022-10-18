@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>checkbox check test</title>
+<script>
+window.onload = function(){
+	function gname(obj)
+	{
+		return document.getElementsByName(obj);
+
+	}
+	function gid(obj)
+	{
+		return document.getElementById(obj);
+	}
+	gid('cb1').onclick = function()
+	{
+		console.dir(gid('cb1').checked);
+	}
+	gid('all').onclick = function()
+	{
+		var nodelist = gname('cb');
+		var nodelen = nodelist.length;
+		for(var i=0;i<nodelen;i++)
+		{
+			nodelist[i].checked = true;
+		}
+	}
+	gid('clear').onclick = function()
+	{
+		var nodelist = gname('cb');
+		var nodelen = nodelist.length;
+		for(var i=0;i<nodelen;i++)
+		{
+			nodelist[i].checked = false;
+		}
+	}
+	gid('check').onclick = function()
+	{
+		var nodelist = gname('cb');
+		var nodelen = nodelist.length;
+		for(var i=0;i<nodelen;i++)
+		{
+			console.log("node"+i+":"+nodelist[i].checked);
+		}
+	}
+};
+</script> 
+</head>
+<body>
+	<h1>checkbox check test</h1>
+	<input type="button" id="check" value="check"></input>
+	<input type="button" id="all" value="all"></input>
+	<input type="button" id="clear" value="clear"></input>
+	<input type="checkbox" name="cb" id="cb1">cb1</input>
+	<input type="checkbox" name="cb" id="cb2">cb2</input>
+	<input type="checkbox" name="cb" id="cb3">cb3</input>
+	<input type="checkbox" name="cb" id="cb4">cb4</input>
+</body>
+</html>
